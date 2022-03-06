@@ -3,6 +3,7 @@ import {BehaviorSubject} from "rxjs";
 import {tap} from "rxjs/operators";
 import {HttpClient} from "@angular/common/http";
 import {User} from "../models/user.model";
+import {environment} from "../../environments/environment";
 
 @Injectable({providedIn: 'root'})
 export class UserServices {
@@ -15,7 +16,7 @@ export class UserServices {
   isAuth$ = new BehaviorSubject<boolean>(false);
 
   login(email: string, password: string) {
-    return this.http.post<{ token: string, userId: string, user: User }>('http://localhost:3000/admin/login', {
+    return this.http.post<{ token: string, userId: string, user: User }>(`${environment.urlAPI}/admin/login`, {
       email,
       password
     }).pipe(
