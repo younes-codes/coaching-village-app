@@ -1,0 +1,14 @@
+<h2>Musculation</h2>
+
+<form (ngSubmit)="onSubmit(form)" #form="ngForm">
+  <select name="session" id="session" (change)="onChange($event.target)">
+    <option selected value="" disabled>Choisir séance</option>
+    <option value="developpe-couche">Développé Couché</option>
+    <option value="incline">Incliné</option>
+  </select>
+</form>
+
+<app-serie-musculation
+  *ngIf="serieMuscuSelected"
+  [serie]="serieMuscuSelected"
+></app-serie-musculation>

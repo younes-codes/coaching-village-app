@@ -1,0 +1,81 @@
+@import "./src/styles";
+
+:host {
+  display: block;
+  margin-top: 80px;
+  margin-bottom: 80px;
+
+  @media (min-width: 768px) {
+    margin-top: 150px;
+  }
+
+  h2 {
+    font-weight: bold;
+  }
+
+  .next-session {
+
+    div {
+      background: #2e69cbcf;
+      padding: 20px 0;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      text-transform: uppercase;
+
+      h3, p {
+        color: white;
+      }
+    }
+  }
+
+  .resulats {
+
+
+    h2 {
+      margin-top: 30px;
+    }
+
+    h3 {
+      text-align: center;
+      margin: 20px 0 0;
+      padding: 10px 0;
+      text-transform: uppercase;
+      background: #2e69cba3;
+      color: white;
+    }
+
+    .serie {
+      background-color: #e8ad1882;
+      padding: 10px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      h4 {
+        text-transform: uppercase;
+        margin-right: 5px;
+        text-align: center;
+      }
+
+    }
+  }
+
+  .session {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px 0;
+
+    .info {
+      text-align: center;
+    }
+  }
+
+  .is-finished {
+    width: 30px;
+  }
+
+}

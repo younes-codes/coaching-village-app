@@ -1,0 +1,12 @@
+<h2>Créer une nouvelle séance</h2>
+
+<form (ngSubmit)="onSubmit(form)" #form="ngForm">
+  <select name="session" id="session" (change)="onChange($event.target)">
+    <option selected value="" disabled>Choisir séance</option>
+    <option value="hiit">HIIT</option>
+    <option value="musculation">Musculation</option>
+  </select>
+</form>
+
+
+<div appPlaceholder></div>

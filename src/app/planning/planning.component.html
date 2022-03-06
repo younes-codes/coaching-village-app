@@ -1,0 +1,11 @@
+<div *ngIf="isAuth">
+
+  <h2>planning Groupe {{userPlanning.group}}</h2>
+
+  <app-loader *ngIf="isLoading"></app-loader>
+
+  <div *ngIf="!isLoading">
+    <app-daily-program [planning]="userPlanning"></app-daily-program>
+  </div>
+
+</div>

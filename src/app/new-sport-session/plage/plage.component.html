@@ -1,0 +1,9 @@
+<h2>Footing Plage</h2>
+
+<form (ngSubmit)="onSubmit(form)" #form="ngForm">
+  <div class="input-container">
+    <label for="time">Temps en minutes</label>
+    <input type="number" name="time" id="time" placeholder="temps en minutes" ngModel="">
+  </div>
+  <button type="submit" class="submit">enregistrez</button>
+</form>
