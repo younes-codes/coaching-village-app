@@ -29,8 +29,12 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.userServices.autoLogging();
-    this.user = this.userServices.user$.value;
     const userId = this.userServices.userId$.value;
+    this.userServices.getUserById(userId).subscribe(res => {
+      this.user = this.userServices.user$.value;
+      this.nextSession = this.planningServices.getNextSession(this.user);
+      this.isLoading = false;
+    });
     this.httpServices.getSessions(userId)
       .pipe(tap((resData) => {
         this.sessionServices.seriesMusculation.next(resData);
@@ -38,7 +42,6 @@ export class HomePageComponent implements OnInit {
         this.isLoading = false;
       }))
       .subscribe()
-    this.nextSession = this.planningServices.getNextSession(this.user);
   }
 
 

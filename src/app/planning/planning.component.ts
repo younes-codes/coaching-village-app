@@ -22,6 +22,7 @@ export class PlanningComponent implements OnInit {
   ngOnInit(): void {
     this.userService.autoLogging();
     this.user = this.userService.user$.value;
+    console.log(this.user)
     this.userPlanning = this.planningServices.getUserPlanning(this.user);
     this.userService.isAuth$.subscribe(isAuth => {
       this.isAuth = isAuth;

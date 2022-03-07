@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
       this.isLoading = true;
     }
     this.userService.login(email, password).subscribe(res => {
+        console.log(res);
         this.userService.isAuth$.next(true);
         this.isAuth = this.userService.isAuth$.value;
         this.router.navigate(['accueil']);
