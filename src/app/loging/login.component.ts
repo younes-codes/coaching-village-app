@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    const email = form.value.email;
+    const email = form.value.email.trim();
     const password = form.value.password;
     if (form.valid) {
       this.isLoading = true;
