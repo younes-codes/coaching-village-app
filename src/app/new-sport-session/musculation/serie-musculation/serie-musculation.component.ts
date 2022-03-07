@@ -43,6 +43,7 @@ export class SerieMusculationComponent implements OnInit, OnChanges {
 
   onSubmit(form: NgForm) {
     const userId = this.userServices.userId$.value;
+
     this.sessionService.seriesMusculation.next(this.seriesMusculation);
     this.httpServices.updateSessions(this.seriesMusculation, userId).subscribe(res => {
       this.router.navigate(['/accueil']);

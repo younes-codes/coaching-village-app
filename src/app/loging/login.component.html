@@ -1,21 +1,27 @@
 <app-loader *ngIf="isLoading"></app-loader>
 <div *ngIf="!isAuth">
-  <h1 class="center">Connexion</h1>
-  <form (ngSubmit)="onSubmit(form)" #form="ngForm">
-    <div class="input-container">
-      <label for="email">Email</label>
-      <input type="text" name="email" id="email" placeholder="email" ngModel="">
+  <div *ngIf="!isLoading">
+    <h1 class="center">Connexion</h1>
+    <div class="error-alert" *ngIf="errorMessage">
+      <p>{{errorMessage}}</p>
     </div>
-    <div class="input-container">
-      <label for="email">Mot de passe</label>
-      <div class="password">
-        <input type="password" name="password" id="password" placeholder="mot de passe" #password ngModel="" required>
-        <button (click)="changeVisibilityPassword($event); $event.preventDefault()">
-          <img src="./assets/{{isPwdHidden ? 'visibility': 'no-visibility'}}.svg" alt="">
-        </button>
+    <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+      <div class="input-container">
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" placeholder="email" ngModel="">
       </div>
-    </div>
-    <button type="submit" class="submit">Je me connecte</button>
-  </form>
-  <a routerLink="/creer-nouveau-mot-passe" class="center reset">Mot de passe oublié ?</a>
+      <div class="input-container">
+        <label for="email">Mot de passe</label>
+        <div class="password">
+          <input type="password" name="password" id="password" placeholder="mot de passe" #password ngModel="" required>
+          <button (click)="changeVisibilityPassword($event); $event.preventDefault()">
+            <img src="./assets/{{isPwdHidden ? 'visibility': 'no-visibility'}}.svg" alt="">
+          </button>
+        </div>
+      </div>
+      <button type="submit" class="submit">Je me connecte</button>
+    </form>
+    <a routerLink="/creer-nouveau-mot-passe" class="center reset">Mot de passe oublié ?</a>
+  </div>
 </div>
+

@@ -168,3 +168,16 @@ form {
     align-items: center;
   }
 }
+
+.error-alert {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e91e63;
+  padding: 30px 0;
+
+  p {
+    color: wheat;
+    font-weight: 500;
+  }
+}

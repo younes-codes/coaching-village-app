@@ -8,10 +8,10 @@ import {environment} from "../../environments/environment";
 
 @Injectable({providedIn: 'root'})
 export class HttpServices {
-  toto: string;
+  userId: string;
 
   constructor(private http: HttpClient, private userS: UserServices) {
-    this.toto = userS.userId$.value;
+    this.userId = userS.userId$.value;
   }
 
 

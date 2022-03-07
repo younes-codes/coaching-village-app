@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
-import {BehaviorSubject} from "rxjs";
-import {tap} from "rxjs/operators";
+import {BehaviorSubject, throwError} from "rxjs";
+import {catchError, tap} from "rxjs/operators";
 import {HttpClient} from "@angular/common/http";
 import {User} from "../models/user.model";
 import {environment} from "../../environments/environment";
@@ -20,6 +20,20 @@ export class UserServices {
       email,
       password
     }).pipe(
+      catchError((errorRes) => {
+        let errorMessage = 'Erreur inconnue';
+        if (!errorRes.error || !errorRes.error.message) {
+          return throwError(errorMessage);
+        }
+        switch (errorRes.error.message) {
+          case 'EMAIL_NOT_EXISTS':
+            errorMessage = 'Le compte nexiste pas.';
+            break;
+          case 'WRONG_PASSWORD':
+            errorMessage = 'Mauvais mot de passe'
+        }
+        return throwError(errorMessage)
+      }),
       tap(resData => {
         localStorage.setItem('userId', JSON.stringify(resData.userId));
         localStorage.setItem('user', JSON.stringify(resData.user));
