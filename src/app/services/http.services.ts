@@ -26,7 +26,7 @@ export class HttpServices {
     }
 
     checkEmail(email: string) {
-        return this.http.post(`${environment.urlAPI}/admin/check-email`, {email})
+        return this.http.post<{ uid: string }>(`${environment.urlAPI}/admin/check-email`, {email})
             .pipe(
                 catchError((errorRes) => {
                     let errorMessage = 'Erreur inconnue';

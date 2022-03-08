@@ -6,10 +6,7 @@ import {CreateAccountService} from "../create-account.service";
 @Component({
     selector: 'app-user-name',
     templateUrl: './user-name.component.html',
-    styleUrls: ['./user-name.component.scss'],
-    host: {
-        'class': 'standard-component'
-    }
+    styleUrls: ['./user-name.component.scss']
 })
 export class UserNameComponent implements OnInit {
     userDetails: any;

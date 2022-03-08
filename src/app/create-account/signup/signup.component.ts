@@ -42,6 +42,8 @@ export class SignupComponent implements OnInit {
             return;
         }
         this.httpService.checkEmail(email).subscribe(res => {
+                this.userServices.userId$.next(res.uid);
+                console.log(this.userServices.userId$.value);
                 this.creationAccountService.userDetails.next({email, password})
                 this.router.navigate(['creer-un-compte/idendite']);
             },

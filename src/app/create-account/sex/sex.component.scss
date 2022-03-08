@@ -1,13 +1,18 @@
 @import "../../../styles";
 
+:host {
+  max-width: 500px;
+}
+
+
 .sex-button {
   background-color: transparent;
   padding: 20px;
   border: 2px solid #2e69cb;
   border-radius: 5px;
   min-width: 150px;
-  max-width: 350px;
-  width: 100%;
+  max-width: 500px;
+  width: 95%;
   height: 100px;
   margin: 10px auto;
   text-transform: uppercase;

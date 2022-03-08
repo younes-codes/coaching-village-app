@@ -10,7 +10,7 @@ import {UserServices} from "../../services/user.services";
     templateUrl: './height-weight.component.html',
     styleUrls: ['./height-weight.component.scss'],
     host: {
-        'class': 'standard-component'
+        'class': 'child-component'
     }
 })
 export class HeightWeightComponent implements OnInit {
@@ -32,9 +32,11 @@ export class HeightWeightComponent implements OnInit {
     onSubmit(form: NgForm) {
         const height = +this.height.nativeElement.value;
         const weight = +this.weight.nativeElement.value;
+        const _id = this.userService.userId$.value;
+        console.log(_id);
         const newUser = {...this.userDetails, height, weight};
         this.creationAccountService.userDetails.next(newUser);
-        this.httpService.createUser(newUser).subscribe(res => {
+        this.httpService.createUser({...newUser, _id}).subscribe(res => {
             this.userService.isAuth$.next(true);
             this.router.navigate(['/accueil']);
         })

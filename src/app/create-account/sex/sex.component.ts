@@ -7,7 +7,7 @@ import {CreateAccountService} from "../create-account.service";
     templateUrl: './sex.component.html',
     styleUrls: ['./sex.component.scss'],
     host: {
-        'class': 'standard-component'
+        'class': 'child-component'
     }
 })
 export class SexComponent implements OnInit {
