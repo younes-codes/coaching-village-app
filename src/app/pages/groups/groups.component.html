@@ -1,0 +1,12 @@
+<app-loader *ngIf="isLoading"></app-loader>
+<div *ngIf="!user.isValidated && !isLoading" class="error-alert">
+    <p class="center">
+        Les groupes seront visibles lorsque Coaching Village
+        aura validé votre compte.
+    </p>
+</div>
+<div *ngIf="!isLoading && user.isValidated">
+    <div *ngFor="let group of groups; let i = index">
+        <app-group [groupNumber]="group" [users]="getUsersByGroup(group)"></app-group>
+    </div>
+</div>

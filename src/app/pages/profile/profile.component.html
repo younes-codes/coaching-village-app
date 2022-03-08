@@ -1,0 +1,52 @@
+<app-loader *ngIf="!user"></app-loader>
+<div *ngIf="user">
+    <h1 class="center">Mon profil</h1>
+    <div class="profil-infos">
+        <div class="info">
+            <h3 class="center">Prénom</h3>
+            <p class="center">{{user.firstname}}</p>
+        </div>
+        <div class="info">
+            <h3 class="center">Nom</h3>
+            <p class="center">{{user.lastname}}</p>
+        </div>
+        <div class="info">
+            <h3 class="center">Profil validé</h3>
+            <img height="20px" src="./assets/{{user.isValidated ? 'done': 'close'}}.svg">
+        </div>
+        <div class="info">
+            <h3 class="center">Email</h3>
+            <p class="center">{{user.email}}</p>
+        </div>
+        <div class="info">
+            <h3 class="center">Arrivé le</h3>
+            <p class="center">{{date}}</p>
+        </div>
+
+        <div class="info">
+            <h3 class="center">Groupe</h3>
+            <p class="center">{{user.group}}</p>
+        </div>
+        <div class="info">
+            <h3 class="center">Taille</h3>
+            <p class="center">{{user.height}}cm</p>
+        </div>
+
+        <div class="info">
+            <h3 class="center">Poids</h3>
+            <p class="center">{{user.weight}}kg</p>
+        </div>
+
+        <div class="info imc">
+            <div class="imc">
+                <h3 class="center">IMC</h3>
+                <p class="center">{{imc}}</p>
+            </div>
+            <button (click)="showImcPopin()">?</button>
+        </div>
+    </div>
+    <a class="support">Contactez support</a>
+    <a class="deconnect" (click)="logout()">Déconnexion</a>
+</div>
+
+<div appPlaceholder></div>

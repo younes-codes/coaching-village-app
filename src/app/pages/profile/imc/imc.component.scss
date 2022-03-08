@@ -1,0 +1,125 @@
+@import "../../../../styles";
+
+:host {
+  .info-imc-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(134, 127, 127, 0.46);
+    width: 100%;
+    height: 100%;
+    z-index: 998;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    @media (min-width: 768px) {
+      align-items: center;
+    }
+  }
+
+  .info-imc {
+    width: 100%;
+    background-color: white;
+    height: auto;
+    border-radius: 15px 15px 0 0;
+    max-width: 768px;
+    animation: snackbarIn 0.5s;
+
+    @media (min-width: 768px) {
+      border-radius: 15px;
+    }
+
+    .header {
+      position: relative;
+
+      .close {
+        position: absolute;
+        right: 15px;
+        top: -10px;
+        height: auto;
+        background: transparent;
+        border: 0;
+      }
+
+      h2 {
+        margin: 20px auto 0;
+      }
+
+      span {
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        font-size: 10px;
+        color: #8f8b8b;
+      }
+    }
+
+    .imc {
+      display: flex;
+      justify-content: center;
+      margin: 20px;
+      font-size: 30px;
+      font-weight: 600;
+    }
+
+    .recap-imc {
+      .signification {
+        display: flex;
+        background-color: rgb(86 114 160 / 25%);
+
+        h2 {
+          display: block;
+          width: 50%;
+          font-size: 15px;
+          text-align: center;
+          margin: 20px 0;
+        }
+
+        .oms {
+          span {
+            color: #8f8b8b;
+            font-size: 8px;
+          }
+        }
+      }
+    }
+
+    .resultats {
+      padding-bottom: 20px;
+
+      .resultat {
+        display: flex;
+        padding: 10px;
+        border-bottom: 1px solid;
+
+        .chiffre, .interpretation {
+          width: 50%;
+          text-align: center;
+        }
+      }
+
+      .resultat:last-child {
+        border: 0;
+      }
+    }
+  }
+
+  @keyframes snackbarIn {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes snackbarOut {
+    to {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+  }
+}

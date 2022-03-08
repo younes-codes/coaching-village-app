@@ -1,0 +1,48 @@
+<div class="info-imc-container" (click)="hidePopin()">
+    <div class="info-imc" (animationend)="animationDone($event)">
+        <div class="header">
+            <h2>IMC</h2>
+            <span>Indice de Masse Corpelle</span>
+            <button class="close">
+                <img src="./assets/close.svg" alt="">
+            </button>
+        </div>
+        <span class="imc">{{imc}}</span>
+        <div class="recap-imc">
+            <div class="signification">
+                <h2>Indice de Masse Corporelle (IMC)</h2>
+                <h2 class="oms">
+                    Interprétation OMS
+                    <br/>
+                    <span>(Organisation Mondiale de la Santé)</span>
+                </h2>
+            </div>
+            <div class="resultats">
+                <div class="resultat">
+                    <h4 class="chiffre">moins de 18,5</h4>
+                    <p class="interpretation">Insuffisance pondérale</p>
+                </div>
+                <div class="resultat">
+                    <h4 class="chiffre">18,5 à 25</h4>
+                    <p class="interpretation">Corpulence normale</p>
+                </div>
+                <div class="resultat">
+                    <h4 class="chiffre">25 à 30</h4>
+                    <p class="interpretation">Surpoids</p>
+                </div>
+                <div class="resultat">
+                    <h4 class="chiffre">30 à 35</h4>
+                    <p class="interpretation">Obésité modérée</p>
+                </div>
+                <div class="resultat">
+                    <h4 class="chiffre">35 à 40</h4>
+                    <p class="interpretation">Obésité sévère</p>
+                </div>
+                <div class="resultat">
+                    <h4 class="chiffre">Plus de 40</h4>
+                    <p class="interpretation">Obésité massive</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

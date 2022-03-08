@@ -1,0 +1,58 @@
+<div>
+    <button (click)="goBack()" class="back-navigation">
+        <img src="../../../../assets/back.svg" alt="back">
+    </button>
+    <h1>Créé votre compte maintenant !</h1>
+    <div *ngIf="errorMessage" class="error-alert">
+        <p> {{errorMessage}}</p>
+    </div>
+    <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+        <div class="input-container">
+            <label for="email">Email</label>
+            <input type="email"
+                   ngModel=""
+                   name="email"
+                   id="email"
+                   placeholder="email"
+                   required
+                   email
+                   #email="ngModel"
+            >
+            <span class="help-block" *ngIf="!email.valid && email.touched">
+                Merci d'entrer une adresse email valide.
+            </span>
+        </div>
+        <div class="input-container">
+            <label for="email">Mot de passe</label>
+            <div class="password">
+                <input type="password"
+                       name="password"
+                       id="password"
+                       placeholder="mot de passe"
+                       required
+                       minlength="6"
+                       ngModel=""
+                       #password
+                >
+                <button (click)="changeVisibilityPassword($event); $event.preventDefault()">
+                    <img src="./assets/{{isPwdHidden ? 'visibility': 'no-visibility'}}.svg"
+                         alt="">
+                </button>
+            </div>
+        </div>
+        <div class="input-container">
+            <label for="confirmPassword">Confirmez mot de passe</label>
+            <input type="password"
+                   name="confirmPassword"
+                   id="confirmPassword"
+                   #passwordConfirm
+                   placeholder="confirmez mot de passe"
+                   ngModel=""
+                   required>
+            <span class="help-block" *ngIf="showPasswordError">
+                Les mots de passe ne correspondent pas.
+            </span>
+        </div>
+        <button type="submit" class="submit" [disabled]="!form.valid">continuer</button>
+    </form>
+</div>

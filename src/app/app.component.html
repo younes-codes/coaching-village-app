@@ -1,11 +1,13 @@
 <div class="banner">
-    <h1 routerLink="/">
-        <span>coaching village </span>app
-    </h1>
-    <button class="btn logout" (click)="logout()" *ngIf="isAuth">
-        <img src="./assets/logout.svg" alt="logout">
-        <span>Déconnexion</span>
-    </button>
+    <div class="inner-banner">
+        <button class="btn profile" routerLinkActive="active" routerLink="/mon-profil" *ngIf="isAuth">
+            <img src="./assets/user.svg" alt="user">
+            <a>Mon profil</a>
+        </button>
+        <h1 routerLink="/accueil">
+            <span>coaching village </span>app
+        </h1>
+    </div>
 </div>
 <app-menu *ngIf="isAuth"></app-menu>
 <router-outlet></router-outlet>

@@ -1,0 +1,39 @@
+<app-loader *ngIf="isLoading"></app-loader>
+<div *ngIf="!isLoading">
+  <ul *ngIf="series.length">
+    <li *ngFor="let serie of series; let i = index">
+      <div class="header-serie">
+        <h4>Série #{{i + 1}}</h4>
+        <button class="btn modifier" (click)="editById(i)">
+          <img src="../../../../../assets/edit.svg" alt="edit">
+        </button>
+
+        <button class="btn delete" (click)="deleteById(i)">
+          <img src="../../../../../assets/delete.svg" alt="delete">
+        </button>
+      </div>
+      <div class="serie-info">
+        <p><strong>Charge: </strong>{{serie.charge}}kg</p>
+        <p><strong>Répétition: </strong>{{serie.repetition}}</p>
+      </div>
+    </li>
+    <div class="serie-info summary">
+      <p><strong>Charge moy: </strong>{{getChargeMoyenne()}}kg</p>
+      <p><strong>Répétitions: </strong>{{getRepetitions()}}</p>
+    </div>
+  </ul>
+  <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+    <div class="input-container">
+      <label for="charge">Charge</label>
+      <input type="number" name="charge" id="charge" placeholder="charge" [(ngModel)]="charge">
+    </div>
+
+    <div class="input-container">
+      <label for="repetition">Répétition</label>
+      <input type="number" name="repetition" id="repetition" placeholder="repetition" [(ngModel)]="repetition">
+    </div>
+    <button type="button" class="submit finished-serie" (click)="createNewSerie()">ajoutez série</button>
+    <button type="submit" class="submit" *ngIf="series.length">enregistrez</button>
+  </form>
+</div>
+

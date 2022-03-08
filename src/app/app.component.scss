@@ -6,16 +6,30 @@
   top: 0;
   width: 100%;
   display: flex;
+  background-color: $blue;
+
+  .inner-banner {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    position: relative;
+    margin: auto;
+
+    @media (min-width: 768px) {
+      max-width: 500px
+    }
+
+  }
 
   h1 {
     text-align: center;
     text-transform: uppercase;
     font-size: 20px;
-    background-color: $blue;
     color: white;
     font-family: 'Lato', sans-serif;
     font-weight: 700;
     width: 100%;
+    max-width: 500px;
     height: 50px;
     display: flex;
     justify-content: center;
@@ -23,21 +37,30 @@
 
     span {
       color: $orange;
+      margin-right: 5px;
     }
   }
 
-  .logout {
+  .btn.profile {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: $blue;
+    background-color: transparent;
     border: 0;
     border-radius: 0;
-    width: 60px;
+    width: auto;
     margin: 0;
     height: 50px;
     box-sizing: border-box;
+    position: absolute;
+    left: 10px;
+
+    @media (min-width: 768px) {
+      left: -45px;
+    }
+
+
 
     img {
       height: 30px;
@@ -48,6 +71,23 @@
       font-size: 8px;
       color: black;
     }
+  }
+
+  .btn.profile a {
+    text-transform: uppercase;
+    font-size: 8px;
+    font-weight: 800;
+    color: white;
+  }
+
+  .btn.profile.active a {
+    transition: .1s;
+    color: #e8ad18;
+  }
+
+  .btn.profile img {
+    width: auto;
+    margin: 0 auto;
   }
 }
 

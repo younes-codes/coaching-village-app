@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@400;500;700;800&display=swap');
 
-$blue: rgb(46, 105, 203);
+$blue: rgba(46, 105, 203);
 $orange: #e8ad18;
 $blue-disabled: rgba(46, 105, 203, 0.3);
 
@@ -198,12 +198,16 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: crimson;
-  padding: 30px 0;
-  margin-top: 20px;
+  background-color: #fdf6f6;
+  padding: 30px;
+  border: 1px solid #de7575;
+  width: 90% !important;
+  max-width: 500px;
+  margin: 20px auto 0;
+  border-radius: 5px;
 
   p {
-    color: wheat;
+    color: #c20707;
     font-weight: 500;
   }
 }

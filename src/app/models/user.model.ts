@@ -4,6 +4,7 @@ export interface User {
     _id?: string;
     email?: string;
     password?: string;
+    sex?: string;
     phone?: string;
     firstname?: string;
     lastname?: string;
@@ -17,5 +18,8 @@ export interface User {
     discount?: number,
     paid?: number,
     balance?: number,
-    sessions?: SeriesMusculation
+    isValidated?: boolean;
+    isAtCoachingVillage?: boolean;
+    sessions?: SeriesMusculation,
+    createdAt?: Date;
 }

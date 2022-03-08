@@ -1,0 +1,13 @@
+<app-loader *ngIf="!user"></app-loader>
+
+
+<div *ngIf="user">
+    <h1 class="center">Bonjour {{user.firstname}},</h1>
+    <div class="next-session">
+        <h2>Prochaine session</h2>
+        <div>
+            <h3>{{nextSession.session}}</h3>
+            <p>{{nextSession.time}}</p>
+        </div>
+    </div>
+</div>

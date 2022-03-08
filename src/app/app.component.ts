@@ -19,12 +19,5 @@ export class AppComponent implements OnInit {
       this.isAuth = isAuth;
     });
   }
-
-
-  logout() {
-    this.userService.isAuth$.next(false);
-    localStorage.clear();
-    this.router.navigate(['/']);
-  }
 }
 

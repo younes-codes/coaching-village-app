@@ -3,36 +3,38 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {MenuComponent} from './menu/menu.component';
-import {LoginComponent} from './loging/login.component';
-import {PlanningComponent} from './planning/planning.component';
-import {NewSportSessionComponent} from './new-sport-session/new-sport-session.component';
+import {MenuComponent} from './components/menu/menu.component';
+import {LoginComponent} from './auth/loging/login.component';
+import {PlanningComponent} from './pages/planning/planning.component';
+import {NewSportSessionComponent} from './pages/new-sport-session/new-sport-session.component';
 import {RouterModule, Routes} from "@angular/router";
-import {GroupsComponent} from './groups/groups.component';
-import {CreatePasswordComponent} from './reset-password/create-password.component';
+import {GroupsComponent} from './pages/groups/groups.component';
+import {CreatePasswordComponent} from './auth/reset-password/create-password.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
-import {LoaderComponent} from './loader/loader.component';
-import {DailyProgramComponent} from "./planning/daily-program/daily-program.component";
-import {AuthGuard} from "./services/auth.guard";
-import {HomePageComponent} from './home-page/home-page.component';
-import {GroupComponent} from "./groups/group/group.component";
+import {LoaderComponent} from './components/loader/loader.component';
+import {DailyProgramComponent} from "./pages/planning/daily-program/daily-program.component";
+import {AuthGuard} from "./guards/auth.guard";
+import {HomePageComponent} from './pages/home-page/home-page.component';
+import {GroupComponent} from "./pages/groups/group/group.component";
 import {PlaceholderDirective} from "./directives/placeholder.directive";
-import {PlageComponent} from './new-sport-session/plage/plage.component';
-import {HiitComponent} from './new-sport-session/hiit/hiit.component';
-import {FractionneComponent} from './new-sport-session/fractionne/fractionne.component';
+import {PlageComponent} from './pages/new-sport-session/plage/plage.component';
+import {HiitComponent} from './pages/new-sport-session/hiit/hiit.component';
+import {FractionneComponent} from './pages/new-sport-session/fractionne/fractionne.component';
 import {
     MusculationComponent
-} from './new-sport-session/musculation/musculation.component';
+} from './pages/new-sport-session/musculation/musculation.component';
 import {
     SerieMusculationComponent
-} from './new-sport-session/musculation/serie-musculation/serie-musculation.component';
-import {LoginSignupComponent} from './login-signup/login-signup.component';
-import {CreateAccountComponent} from './create-account/create-account.component';
-import {UserNameComponent} from './create-account/user-name/user-name.component';
-import {SexComponent} from './create-account/sex/sex.component';
-import {HeightWeightComponent} from './create-account/height-weight/height-weight.component';
-import { SignupComponent } from './create-account/signup/signup.component';
+} from './pages/new-sport-session/musculation/serie-musculation/serie-musculation.component';
+import {LoginSignupComponent} from './auth/login-signup/login-signup.component';
+import {CreateAccountComponent} from './auth/create-account/create-account.component';
+import {UserNameComponent} from './auth/create-account/user-name/user-name.component';
+import {SexComponent} from './auth/create-account/sex/sex.component';
+import {HeightWeightComponent} from './auth/create-account/height-weight/height-weight.component';
+import { SignupComponent } from './auth/create-account/signup/signup.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import {ImcComponent} from "./pages/profile/imc/imc.component";
 
 const appRoutes: Routes = [
     {path: '', component: LoginSignupComponent},
@@ -53,6 +55,7 @@ const appRoutes: Routes = [
         component: NewSportSessionComponent
     },
     {path: 'groups', canActivate: [AuthGuard], component: GroupsComponent},
+    {path: 'mon-profil', canActivate: [AuthGuard], component: ProfileComponent},
     {path: 'creer-nouveau-mot-passe', component: CreatePasswordComponent},
     {path: 'creer-nouveau-mot-passe/:userId', component: CreatePasswordComponent},
     {path: '**', redirectTo: ''}
@@ -83,7 +86,9 @@ const appRoutes: Routes = [
         UserNameComponent,
         SexComponent,
         HeightWeightComponent,
-        SignupComponent
+        SignupComponent,
+        ProfileComponent,
+        ImcComponent
     ],
     imports: [
         BrowserModule,

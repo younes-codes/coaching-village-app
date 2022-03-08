@@ -1,0 +1,82 @@
+@import "../../../styles";
+
+:host {
+  display: block;
+  margin-top: 80px;
+  margin-bottom: 100px;
+
+  @media (min-width: 768px) {
+    margin-top: 150px;
+  }
+
+  .profil-infos {
+    margin-top: 50px;
+  }
+
+  .info {
+    padding: 5px 0;
+    border-bottom: 1px solid;
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+
+    &.imc {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      align-items: center;
+
+
+      div {
+        transform: translateX(10px);
+      }
+
+      button {
+        width: 20px;
+        height: 20px;
+        align-items: center;
+        transform: translateX(60px);
+        border-radius: 100%;
+        padding: 12px;
+        justify-content: center;
+        display: flex;
+        background-color: transparent;
+        border: 2px solid #e8ad18;
+        font-weight: 800;
+      }
+    }
+  }
+
+  .support {
+    margin: 40px auto;
+    text-align: center;
+    background-color: #2e69cb;
+    border: 2px solid #2e69cb;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 200px;
+    padding: 15px 0;
+    display: block;
+    color: white;
+    text-transform: uppercase;
+    font-size: 12px;
+    cursor: pointer;
+    &:hover {
+      color: $blue;
+      border-color: $blue;
+      background-color: white;
+      transition: background-color 0.2s;
+    }
+  }
+
+  .deconnect {
+    color: crimson;
+    text-align: center;
+    width: fit-content;
+    display: block;
+    text-decoration: underline;
+    margin: 0 auto;
+    cursor: pointer;
+    font-weight: 700;
+  }
+}
