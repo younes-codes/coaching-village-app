@@ -1,44 +1,44 @@
 <app-loader *ngIf="isLoading"></app-loader>
 <div class="resulats" *ngIf="!isLoading">
-  <h1 class="center">Bonjour {{user.firstname}},</h1>
-  <div class="next-session">
-    <h2>Prochain RDV</h2>
-    <div>
-      <h3 class="title">{{nextSession.session}}</h3>
-      <p>{{nextSession.time}}</p>
-    </div>
-  </div>
-  <h2>Performances</h2>
-  <ul>
-    <div>
-      <h3>Musculation</h3>
-    </div>
-    <div *ngIf="musculationSessions">
-      <li *ngFor="let muscu of series">
-        <div class="serie">
-          <h4>{{muscu}} - {{getTotalSeries(muscu)}}</h4>
+    <h1 class="center">Bonjour USER,</h1>
+    <div class="next-session">
+        <h2>Prochain RDV</h2>
+        <div>
+            <h3 class="title"></h3>
+            <p></p>
         </div>
-        <div class="session">
-          <p class="info">répétitions totales<br> <strong>{{geTotalRepetitions(muscu)}}</strong></p>
-          <p class="info">charge moyenne<br> <strong>{{getChargeMoyenne(muscu)}}kg</strong></p>
+    </div>
+    <h2>Performances</h2>
+    <ul>
+        <div>
+            <h3>Musculation</h3>
         </div>
-      </li>
-    </div>
-  </ul>
-  <ul>
-    <div>
-      <h3>hiit</h3>
-    </div>
-  </ul>
-  <ul>
-    <div>
-      <h3>plage</h3>
-    </div>
-  </ul>
-  <ul>
-    <div>
-      <h3>fractionné</h3>
-    </div>
+        <div>
+            <li>
+                <div class="serie">
+                    <h4></h4>
+                </div>
+                <div class="session">
+                    <p class="info">répétitions totales<br> <strong></strong></p>
+                    <p class="info">charge moyenne<br> <strong>kg</strong></p>
+                </div>
+            </li>
+        </div>
+    </ul>
+    <ul>
+        <div>
+            <h3>hiit</h3>
+        </div>
+    </ul>
+    <ul>
+        <div>
+            <h3>plage</h3>
+        </div>
+    </ul>
+    <ul>
+        <div>
+            <h3>fractionné</h3>
+        </div>
 
-  </ul>
+    </ul>
 </div>

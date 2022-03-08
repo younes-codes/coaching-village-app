@@ -2,6 +2,32 @@
 
 $blue: rgb(46, 105, 203);
 $orange: #e8ad18;
+$blue-disabled: rgba(46, 105, 203, 0.3);
+
+
+.standard-component {
+  height: calc(100vh - 50px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  position: absolute;
+  top: 50px;
+
+  @media (min-width: 768px) {
+    margin-top: 100px;
+  }
+
+  div {
+    width: 100%;
+  }
+
+  h1 {
+    text-align: center;
+    width: 100%;
+  }
+}
 
 * {
   margin: 0;
@@ -36,7 +62,7 @@ h2 {
   background-color: #2e69cb;
   border: aliceblue;
   padding: 20px;
-  margin: 10px auto;
+  margin: 20px auto;
   width: 100%;
   max-width: 500px;
   justify-content: center;
@@ -173,11 +199,36 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #e91e63;
+  background-color: crimson;
   padding: 30px 0;
+  margin-top: 20px;
 
   p {
     color: wheat;
     font-weight: 500;
   }
+}
+
+button[disabled] {
+  background-color: $blue-disabled;
+  pointer-events: none;
+  cursor: not-allowed !important;
+}
+
+.back-navigation {
+  background-color: transparent;
+  border: 0;
+  position: absolute;
+  top: 60px;
+  left: 10px;
+  width: 30px;
+  height: 20px;
+}
+
+
+.help-block {
+  color: crimson;
+  font-size: 12px;
+  display: block;
+  margin-top: 5px;
 }
