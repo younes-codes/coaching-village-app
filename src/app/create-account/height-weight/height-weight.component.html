@@ -1,0 +1,33 @@
+<div>
+    <button (click)="goBack()" class="back-navigation">
+        <img src="../../../assets/back.svg" alt="back">
+    </button>
+    <h1>Votre taille et poids</h1>
+    <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+        <div class="input-container">
+            <label for="height">Taille</label>
+            <input type="number"
+                   name="height"
+                   id="height"
+                   placeholder="taille"
+                   #height
+                   ngModel=""
+                   min="90"
+                   max="200"
+                   required>
+        </div>
+        <div class="input-container">
+            <label for="weight">Poids</label>
+            <input type="number"
+                   name="weight"
+                   id="weight"
+                   placeholder="poids"
+                   #weight
+                   min="30"
+                   max="200"
+                   ngModel=""
+                   required>
+        </div>
+        <button type="submit" class="submit" [disabled]="!form.valid">continuer</button>
+    </form>
+</div>

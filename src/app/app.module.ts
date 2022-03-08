@@ -21,51 +21,79 @@ import {PlaceholderDirective} from "./directives/placeholder.directive";
 import {PlageComponent} from './new-sport-session/plage/plage.component';
 import {HiitComponent} from './new-sport-session/hiit/hiit.component';
 import {FractionneComponent} from './new-sport-session/fractionne/fractionne.component';
-import {MusculationComponent} from './new-sport-session/musculation/musculation.component';
-import {SerieMusculationComponent} from './new-sport-session/musculation/serie-musculation/serie-musculation.component';
+import {
+    MusculationComponent
+} from './new-sport-session/musculation/musculation.component';
+import {
+    SerieMusculationComponent
+} from './new-sport-session/musculation/serie-musculation/serie-musculation.component';
+import {LoginSignupComponent} from './login-signup/login-signup.component';
+import {CreateAccountComponent} from './create-account/create-account.component';
+import {UserNameComponent} from './create-account/user-name/user-name.component';
+import {SexComponent} from './create-account/sex/sex.component';
+import {HeightWeightComponent} from './create-account/height-weight/height-weight.component';
+import { SignupComponent } from './create-account/signup/signup.component';
 
 const appRoutes: Routes = [
-  {path: '', canActivate: [AuthGuard], component: LoginComponent},
-  {path: 'connexion', component: LoginComponent},
-  {path: 'mon-planning', canActivate: [AuthGuard], component: PlanningComponent},
-  {path: 'accueil', canActivate: [AuthGuard], component: HomePageComponent},
-  {path: 'nouvelle-seance', canActivate: [AuthGuard], component: NewSportSessionComponent},
-  {path: 'groups', canActivate: [AuthGuard], component: GroupsComponent},
-  {path: 'creer-nouveau-mot-passe', component: CreatePasswordComponent},
-  {path: 'creer-nouveau-mot-passe/:userId', component: CreatePasswordComponent},
-  {path: '**', redirectTo: ''}
+    {path: '', component: LoginSignupComponent},
+    {path: 'connexion', component: LoginComponent},
+    {
+        path: 'creer-un-compte', component: CreateAccountComponent, children: [
+            {path: 'email-mot-de-passe', component: SignupComponent},
+            {path: 'idendite', component: UserNameComponent},
+            {path: 'sexe', component: SexComponent},
+            {path: 'taille-poids', component: HeightWeightComponent},
+        ]
+    },
+    {path: 'mon-planning', canActivate: [AuthGuard], component: PlanningComponent},
+    {path: 'accueil', canActivate: [AuthGuard], component: HomePageComponent},
+    {
+        path: 'nouvelle-seance',
+        canActivate: [AuthGuard],
+        component: NewSportSessionComponent
+    },
+    {path: 'groups', canActivate: [AuthGuard], component: GroupsComponent},
+    {path: 'creer-nouveau-mot-passe', component: CreatePasswordComponent},
+    {path: 'creer-nouveau-mot-passe/:userId', component: CreatePasswordComponent},
+    {path: '**', redirectTo: ''}
 
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MenuComponent,
-    LoginComponent,
-    PlanningComponent,
-    NewSportSessionComponent,
-    GroupsComponent,
-    GroupComponent,
-    CreatePasswordComponent,
-    LoaderComponent,
-    DailyProgramComponent,
-    HomePageComponent,
-    PlaceholderDirective,
-    PlageComponent,
-    HiitComponent,
-    FractionneComponent,
-    MusculationComponent,
-    SerieMusculationComponent
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    FormsModule,
-    RouterModule.forRoot(appRoutes)
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        MenuComponent,
+        LoginComponent,
+        PlanningComponent,
+        NewSportSessionComponent,
+        GroupsComponent,
+        GroupComponent,
+        CreatePasswordComponent,
+        LoaderComponent,
+        DailyProgramComponent,
+        HomePageComponent,
+        PlaceholderDirective,
+        PlageComponent,
+        HiitComponent,
+        FractionneComponent,
+        MusculationComponent,
+        SerieMusculationComponent,
+        LoginSignupComponent,
+        CreateAccountComponent,
+        UserNameComponent,
+        SexComponent,
+        HeightWeightComponent,
+        SignupComponent
+    ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        FormsModule,
+        RouterModule.forRoot(appRoutes)
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }
